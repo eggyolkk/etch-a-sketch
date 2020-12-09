@@ -8,6 +8,7 @@ function makeRows(rows, cols) {
 		let cell = document.createElement("div");
 		//Create a new class for a specific grid cell when hovered
 		cell.addEventListener('mouseover', e => e.target.classList.add('coloured-cell'));
+
 		container.appendChild(cell).className = "grid-item";
 	};
 };
@@ -20,6 +21,10 @@ function sketchGrid(){
 let clear = document.getElementById('clear');
 	clear.addEventListener('click', function() {
 		newSize = prompt('How many squares would you like for your new grid? (Enter 10 - 100)');
+		
+		const container = document.querySelector('#sketch-container')
+		while(container.firstChild) container.firstChild.remove()
+
 		makeRows(newSize, newSize);
 	});
 
